@@ -1,115 +1,127 @@
-# SQL - Introduction
+# 0x0D-SQL_introduction
 
-This was my first project in which I began to work with SQL and relational
-databases. I began practicing introductory data definition and data
-manipulation language, making subqueries, and using functions.
+<code>0-privileges.sql:</code> <p>Write a script that lists all privileges of the MySQL users user_0d_1 and user_0d_2 on your server (in localhost).</p>
 
-## Usage :dolphin:
+<code>1-create_user.sql:</code> <p>Write a script that creates the MySQL server user user_0d_1.</p>
+<ul>
+    <li>user_0d_1 should have all privileges on your MySQL server</li>
+    <li>The user_0d_1 password should be set to user_0d_1_pwd</li>
+    <li>If the user user_0d_1 already exists, your script should not fail</li>
+</ul>
 
-* Scripts [3-list_tables.sql](./3-list_tables.sql) forward take the database to query
-from as a MySQL command line argument.
+<code>2-create_read_user.sql:</code> <p>Write a script that creates the database hbtn_0d_2 and the user user_0d_2.</p>
+<ul>
+	<li>user_0d_2 should have only SELECT privilege in the database hbtn_0d_2</li>
+ 	<li>The user_0d_2 password should be set to user_0d_2_pwd</li>
+ 	<li>If the database hbtn_0d_2 already exists, your script should not fail</li>
+ 	<li>If the user user_0d_2 already exists, your script should not fail</li>
+</ul>
 
-```
-$ cat 3-list_tables.sql | mysql -h localhost -u root -p mysql
-```
+<code>3-force_name.sql:</code> <p>Write a script that creates the table force_name on your MySQL server.</p>
+<lu>
+	<li>force_name description:</li>
+        <li>id INT</li>
+	<li>name VARCHAR(256) can’t be null</li>
+    	<li>The database name will be passed as an argument of the mysql command</li>
+    	<li>If the table force_name already exists, your script should not fail</li>
+</lu>
 
-* Tasks 101-103 query from the database [temperatures.sql](./temperatures.sql).
+<code>4-first_table.sql:</code> <p>Write a script that creates a table called first_table in the current database in your MySQL server.</p>
+<lu>
+	<li>first_table description:</li>
+ 	<li>id INT</li>
+   	<li>name VARCHAR(256)</li>
+	<li>The database name will be passed as an argument of the mysql command</li>
+ 	<li>If the table first_table already exists, your script should not fail</li>
+ 	<li>You are not allowed to use the SELECT or SHOW statements</li>
+</lu>
 
-## Tasks :page_with_curl:
+<code>5-full_table.sql:</code> <p>Write a script that prints the full description of the table first_table from the database hbtn_0c_0 in your MySQL server.</p>
+<lu>
+	<li>The database name will be passed as an argument of the mysql command</li>
+	<li>You are not allowed to use the DESCRIBE or EXPLAIN statements</li>
+</lu>
 
-* **0. List databases**
-  * [0-list_databases.sql](./0-list_databases.sql): MySQL script that lists all databases.
+<code>6-list_values.sql:</code> <p>Write a script that lists all rows of the table first_table from the database hbtn_0c_0 in your MySQL server.</p>
+<lu>
+	<li>All fields should be printed</li>
+	<li>The database name will be passed as an argument of the mysql command</li>
+</lu>
 
-* **1. Create a database**
-  * [1-create_database.sql](./1-create_database.sql): MySQL script that creates the database
-  `hbtn_0c_0`.
+<code>7-insert_value.sql:</code> <p>Write a script that inserts a new row in the table first_table (database hbtn_0c_0) in your MySQL server.</p>
+<lu>
+	<li>id = 89</li>
+	<li>name = Best School</li>
+	<li>The database name will be passed as an argument of the mysql command</li>
+</lu>
 
-* **2. Delete a database**
-  * [2-remove_databases.sql](./2-remove_databases.sql): MySQL script that deletes the database
-  `hbtn_0c_0`.
+<code>8-count_89.sql:</code> <p>Write a script that displays the number of records with id = 89 in the table first_table of the database hbtn_0c_0 in your MySQL server.</p>
+<lu>
+	<li>The database name will be passed as an argument of the mysql command</li>
+</lu>
 
-* **3. List tables**
-  * [3-list_tables.sql](./3-list_tables.sql): MySQL script that lists all tables.
+<code>9-full_creation.sql:</code> <p>Write a script that creates a table second_table in the database hbtn_0c_0 in your MySQL server and add multiples rows.</p>
 
-* **4. First table**
-  * [4-first_table.sql](./4-first_table.sql): MySQL script that creates a table `first_table`.
-  * Description:
-    * `id`: INT
-    * `name`: VARCHAR(256)
+<li><code>second_table</code> description:
 
-* **5. Full description**
-  * [5-full_table.sql](./5-full_table.sql): MySQL script that prints the full description of the
-  table `first_table`.
+<ul>
+<li><code>id</code> INT</li>
+<li><code>name</code> VARCHAR(256)</li>
+<li><code>score</code> INT</li>
+</ul></li>
+<li>The database name will be passed as an argument to the <code>mysql</code> command</li>
+<li>If the table <code>second_table</code> already exists, your script should not fail</li>
+<li>You are not allowed to use the <code>SELECT</code> and <code>SHOW</code> statements</li>
+<li>Your script should create these records:
 
-* **6. List all in table**
-  * [6-list_values.sql](./6-list_values.sql): MySQL script that lists all rows of the table
-  `first_table`.
+<ul>
+<li><code>id</code> = 1, <code>name</code> = “John”, <code>score</code> = 10</li>
+<li><code>id</code> = 2, <code>name</code> = “Alex”, <code>score</code> = 3</li>
+<li><code>id</code> = 3, <code>name</code> = “Bob”, <code>score</code> = 14</li>
+<li><code>id</code> = 4, <code>name</code> = “George”, <code>score</code> = 8</li>
+</ul></li>
 
-* **7. First add**
-  * [7-insert_value.sql](./7-insert_value.sql): MySQL script that inserts a new row in the table
-  `first_table`.
-  * Description:
-    * `id` = `89`
-    * `name` = `Holberton School`
+<code>10-top_score.sql:</code>
+<p>Write a script that lists all records of the table <code>second_table</code> of the database <code>hbtn_0c_0</code> in your MySQL server.</p>
+<li>Results should display both the score and the name (in this order)</li>
+<li>Records should be ordered by score (top first) </li>
+<li>The database name will be passed as an argument of the <code>mysql</code> command</li>
 
-* **8. Count 89**
-  * [8-count_89.sql](./8-count_89.sql): MySQL script that displays the number records with `id =
-  89` in the table `first_table`.
+<code>11-best_score.sql:</code>
+<p>Write a script that lists all records with a <code>score &gt;= 10</code> in the table <code>second_table</code> of the database <code>hbtn_0c_0</code> in your MySQL server.</p>
 
-* **9. Full creation**
-  * [9-full_creation.sql](./9-full_creation.sql): MySQL script that creates and fills a table
-  `second_table`.
-  * Description:
-    * `id`: INT
-    * `name`: VARCHAR(256)
-    * `score`: INT
-  * Records:
-    * `id` = 1, `name` = "John", `score` = 10
-    * `id` = 2, `name` = "Alex", `score` = 3
-    * `id` = 3, `name` = "Bob", `score` = 14
-    * `id` = 4, `name` = "George", `score` = 8
+<li>Results should display both the score and the name (in this order)</li>
+<li>Records should be ordered by score (top first)</li>
+<li>The database name will be passed as an argument of the <code>mysql</code> command</li>
 
-* **10. List by best**
-  * [10-top_score.sql](./10-top_score.sql): MySQL script that lists the `score` and `name` of all
-  records of the table `second_table` in order of descending `score`.
+<code>12-no_cheating.sql:</code>
+<p>Write a script that updates the score of Bob to <code>10</code> in the table <code>second_table</code>.</p>
+<li>You are not allowed to use Bob’s id value, only the <code>name</code> field</li>
+<li>The database name will be passed as an argument of the <code>mysql</code> command</li>
 
-* **11. Select the best**
-  * [11-best_score.sql](./11-best_score.sql): MySQL script that lists the `score` and `name` of all
-  records with a `score >= 10` in the table `second_table` in order of descending score.
+<code>13-change_class.sql</code>
+<p>Write a script that removes all records with a <code>score &lt;= 5</code> in the table <code>second_table</code> of the database <code>hbtn_0c_0</code> in your MySQL server.</p>
+<li>The database name will be passed as an argument of the <code>mysql</code> command</li>
 
-* **12. Cheating is bad**
-  * [12-no_cheating.sql](./12-no_cheating.sql): MySQL script that updates the score of Bob to 10
-  the table `second_table`.
+<code>14-average.sql:</code>
+<p>Write a script that computes the score average of all records in the table <code>second_table</code> of the database <code>hbtn_0c_0</code> in your MySQL server.</p>
+<li>The result column name should be <code>average</code></li>
+<li>The database name will be passed as an argument of the <code>mysql</code> command</li>
 
-* **13. Score too low**
-  * [13-change_class.sql](./13-change_class.sql): MySQL script that removes all records with a
-  `score <= 5` in the table `second_table`.
+<code>15-groups.sql:</code>
+<p>Write a script that lists the number of records with the same score in the table <code>second_table</code> of the database <code>hbtn_0c_0</code> in your MySQL server.</p>
+<li>The result should display:
+<ul>
+<li>the <code>score</code></li>
+<li>the number of records for this <code>score</code> with the label <code>number</code></li>
+</ul></li>
+<li>The list should be sorted by the number of records (descending)</li>
+<li>The database name will be passed as an argument to the <code>mysql</code> command</li>
 
-* **14. Average**
-  * [14-average.sql](./14-average.sql): MySQL script that computes the average `score` of all
-  records in the table `second_table`.
+<code>16-no_link.sql:</code>
+<p>Write a script that lists all records of the table <code>second_table</code> of the database <code>hbtn_0c_0</code> in your MySQL server.</p>
 
-* **15. Number by score**
-  * [15-groups.sql](./15-groups.sql): MySQL script that lists the `score` and number of records
-  with the same score in the table `second_table` in order of descending count.
-
-* **16. Say my name**
-  * [16-no_link.sql](./16-no_link.sql): MySQL script that lists the `score` and `name` of all
-  records in the table `second_table` in order of descending `score`.
-  * Does not display rows without a `name` value.
-
-* **17. Go to UTF8**
-  * [100-move_to_utf8.sql](./100-move_to_utf8.sql): MySQL script that converts the `hbtn_0c_0`
-  database to UTF8.
-
-* **18. Temperatures #0**
-  * [101-avg_temperatures.sql](./101-avg_temperatures.sql): MySQL script that displays the average
-  temperature (Fahrenheit) by city in descending order.
-
-* **19. Temperatures #1**
-  * [102-top_city.sql](./102-top_city.sql): MySQL script that displays the three cities with the
-  highest average temperature from July to August in descending order.
-
-* **20. Temperature #2**
-  * [103-max_state.sql](./103-max_state.sql): MySQL script that displays the max temperature of each
-  state in order of state name.
+<li>Don’t list rows without a <code>name</code> value</li>
+<li>Results should display the score and the name (in this order)</li>
+<li>Records should be listed by descending score </li>
+<li>The database name will be passed as an argument to the <code>mysql</code> command</li>
